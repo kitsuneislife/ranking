@@ -1,0 +1,155 @@
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Quicksand', sans-serif;
+    background-color: #121212;
+}
+
+.default-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: fit-content;
+}
+
+.default-table {
+    border: 1px solid #272727;
+    border-collapse: collapse;
+}
+
+.default-table tr th {
+    font-size: 12px;
+    font-weight: normal;
+    color: #FFFFFF;
+    padding: 5px 20px;
+    background-color: #333333;
+    border: 1px solid #121212;
+}
+
+.default-table tr td {
+    border-right: 1px solid #272727;
+}
+
+.default-rank {
+    text-align: center;
+    font-family: Avenir, lucida grande, tahoma, verdana, arial, sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: #a3a3a3;
+    line-height: 1.5em;
+}
+
+.default-title-col {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    padding: 15px;
+}
+
+.default-title-col-image {
+    width: 150px;
+    height: auto;
+    border-radius: 7px;
+    object-fit: cover;
+}
+
+.default-title-col-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.info-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--plx-yellow);
+    text-decoration: underline wavy;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.info-card {
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+    background-color: rgb(215, 117, 0);
+    border-radius: 4px;
+    padding: 5px;
+    width: fit-content;
+}
+
+.info-card-alt {
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+    background-color: rgb(215, 117, 0);
+    border-radius: 4px;
+    padding: 5px;
+    width: fit-content;
+}
+
+.info-series {
+    font-size: 14px;
+    color: #666666;
+}
+
+.default-score {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    color: #FFFFFF;
+    gap: 5px;
+}
+
+.default-score img {
+    width: 20px;
+    height: 20px;
+}
+
+.default-toggle-container {
+    padding: 5px;
+}
+
+.default-toggle {
+    font-size: 24px;
+    text-align: center;
+    color: var(--plx-yellow);
+    padding: 0px 8px;
+    border: 1px solid var(--plx-yellow);
+    border-radius: 7px;
+    transition: all 0.2s;
+}
+
+.default-toggle:hover {
+    color: #FFF;
+    background-color: var(--plx-yellow);
+}
+
+.default-details {
+    color: #FFFFFF;
+    background-color: #333333;
+}
+
+.default-details-td {
+    padding: 15px;
+}
+
+.default-review-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.default-review {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.default-review-avatar {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+}

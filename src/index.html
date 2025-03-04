@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Abertura de Anime</title>
+    <link rel="stylesheet" type="text/css" href="root.css">
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <link rel="stylesheet" type="text/css" href="./styles/opening.css">
+    <style>
+        /* Tema Escuro Moderno */
+        body {
+            background-color: #121212;
+            color: #E0E0E0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 20px 200px;
+            gap: 40px;
+        }
+
+        .opening-review-circle {
+            transform: scale(0.8);
+        }
+
+        h2 {
+            color: #FFFFFF;
+        }
+
+        form {
+            background-color: #1E1E1E;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+            color: #B0B0B0;
+            align-self: left;
+            text-align: left;
+        }
+
+        input {
+            width: 400px;
+            padding: 10px;
+            margin-top: 5px;
+            border: none;
+            border-radius: 5px;
+            background-color: #2A2A2A;
+            color: #E0E0E0;
+        }
+
+        button {
+            background-color: #6200EE;
+            color: #FFFFFF;
+            border: none;
+            padding: 10px;
+            margin-top: 15px;
+            width: 100%;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #3700B3;
+        }
+
+        ul {
+            background-color: #1E1E1E;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+            list-style: none;
+            padding: 0;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        li {
+            background-color: #1E1E1E;
+            padding: 15px;
+            margin-top: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
+        }
+
+        a {
+            color: #BB86FC;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .delete-btn {
+            background-color: #D32F2F;
+            padding: 5px 10px;
+            border-radius: 5px;
+            border: none;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        .delete-btn:hover {
+            background-color: #B71C1C;
+        }
+
+        .export-btn {
+            background-color: #03DAC6;
+            color: #121212;
+            font-weight: bold;
+        }
+
+        .export-btn:hover {
+            background-color: #00A896;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h2>Cadastro de Abertura de Anime</h2>
+        <form id="animeForm">
+            <label>Nome do Usuário:</label>
+            <input type="text" id="nomeUsuario" required>
+    
+            <label>Nome da Música de Abertura:</label>
+            <input type="text" id="nomeMusica" required>
+    
+            <label>Nome do Performer:</label>
+            <input type="text" id="nomePerformer" required>
+    
+            <label>Link da Abertura:</label>
+            <input type="url" id="linkAbertura" required>
+    
+            <label>Link da Música:</label>
+            <input type="url" id="linkMusica" required>
+    
+            <label>Número de Contagem:</label>
+            <input type="number" id="numContagem" required>
+    
+            <label>Número de Contagem por Temporada:</label>
+            <input type="text" id="numContagemTemporada" required>
+    
+            <label>Nome do Anime:</label>
+            <input type="text" id="nomeAnime" required>
+    
+            <label>Temporada da Abertura:</label>
+            <input type="text" id="temporadaAbertura" required>
+    
+            <div class="opening-review-container">
+                <div class="opening-review-box">
+                    <input type="number" step="0.01" id="notaMusica" class="opening-review-circle opening-review-circle-blue" value="0.0" max="10" required>
+                    <span>Música</span>
+                </div>
+                <div class="opening-review-box">
+                    <input type="number" step="0.01" id="notaAnimacao" class="opening-review-circle opening-review-circle-red" value="0.0" max="10" required>
+                    <span>Animação</span>
+                </div>
+                <div class="opening-review-box">
+                    <input type="number" step="0.01" id="notaComposicao" class="opening-review-circle opening-review-circle-purple" value="0.0" max="10" required>
+                    <span>Composição</span>
+                </div>
+                <div class="opening-review-box">
+                    <input type="number" step="0.01" id="notaReplay" class="opening-review-circle opening-review-circle-green" value="0.0"  max="10" required>
+                    <span>Replay</span>
+                </div>
+                <div class="opening-review-box">
+                    <input type="number" step="0.01" id="notaPessoal" class="opening-review-circle opening-review-circle-yellow" value="0.0"  max="10" required>
+                    <span>Pessoal</span>
+                </div>
+            </div>
+    
+            <button type="submit">Salvar</button>
+            <button type="button" onclick="preencherUltimosDados()">Preencher Últimos Dados</button>
+            <button class="export-btn" type="button" onclick="exportarJSON()">Exportar como JSON</button>
+        </form>
+    </div>
+    <div>
+        <h2>Dados Salvos</h2>
+        <ul id="listaDados"></ul>
+    </div>
+
+    <script>
+        document.getElementById("animeForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const novoDado = {
+                nomeUsuario: document.getElementById("nomeUsuario").value,
+                nomeMusica: document.getElementById("nomeMusica").value,
+                nomePerformer: document.getElementById("nomePerformer").value,
+                linkAbertura: document.getElementById("linkAbertura").value,
+                linkMusica: document.getElementById("linkMusica").value,
+                numContagem: document.getElementById("numContagem").value,
+                numContagemTemporada: document.getElementById("numContagemTemporada").value,
+                nomeAnime: document.getElementById("nomeAnime").value,
+                temporadaAbertura: document.getElementById("temporadaAbertura").value,
+                notas: {
+                    musica: parseFloat(document.getElementById("notaMusica").value),
+                    animacao: parseFloat(document.getElementById("notaAnimacao").value),
+                    composicao: parseFloat(document.getElementById("notaComposicao").value),
+                    replay: parseFloat(document.getElementById("notaReplay").value),
+                    pessoal: parseFloat(document.getElementById("notaPessoal").value)
+                }
+            };
+
+            let dadosSalvos = JSON.parse(localStorage.getItem("aberturasAnime")) || [];
+            dadosSalvos.push(novoDado);
+
+            localStorage.setItem("aberturasAnime", JSON.stringify(dadosSalvos));
+            document.getElementById("animeForm").reset();
+            exibirDados();
+        });
+
+        function exibirDados() {
+            const lista = document.getElementById("listaDados");
+            lista.innerHTML = "";
+            const dadosSalvos = JSON.parse(localStorage.getItem("aberturasAnime")) || [];
+
+            dadosSalvos.forEach((item, index) => {
+                const li = document.createElement("li");
+                li.innerHTML = `<strong>${item.nomeAnime} (${item.temporadaAbertura})</strong><br>
+                ${item.nomeMusica} por ${item.nomePerformer}<br>
+                <a href="${item.linkAbertura}" target="_blank">[Abertura]</a> | 
+                <a href="${item.linkMusica}" target="_blank">[Música]</a><br>
+                Notas: Música: ${item.notas.musica}, Animação: ${item.notas.animacao}, Composição: ${item.notas.composicao}, Replay: ${item.notas.replay}, Pessoal: ${item.notas.pessoal}
+                <button class="delete-btn" onclick="removerDado(${index})">Remover</button>`;
+                lista.appendChild(li);
+            });
+        }
+
+        function removerDado(index) {
+            let dadosSalvos = JSON.parse(localStorage.getItem("aberturasAnime")) || [];
+            dadosSalvos.splice(index, 1);
+            localStorage.setItem("aberturasAnime", JSON.stringify(dadosSalvos));
+            exibirDados();
+        }
+
+        function exportarJSON() {
+            let dadosSalvos = JSON.parse(localStorage.getItem("aberturasAnime")) || [];
+            if (dadosSalvos.length === 0) {
+                alert("Nenhum dado para exportar.");
+                return;
+            }
+
+            const blob = new Blob([JSON.stringify(dadosSalvos, null, 2)], { type: "application/json" });
+            const link = document.createElement("a");
+            link.href = URL.createObjectURL(blob);
+            link.download = "aberturas_anime.json";
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        function preencherUltimosDados(event) {
+            event.preventDefault();
+            const dadosSalvos = JSON.parse(localStorage.getItem("aberturasAnime")) || [];
+            if (dadosSalvos.length === 0) {
+                alert("Nenhum dado salvo encontrado.");
+                return;
+            }
+
+            const ultimoDado = dadosSalvos[dadosSalvos.length - 1];
+
+            document.getElementById("nomeUsuario").value = ultimoDado.nomeUsuario;
+            document.getElementById("nomeMusica").value = ultimoDado.nomeMusica;
+            document.getElementById("nomePerformer").value = ultimoDado.nomePerformer;
+            document.getElementById("linkAbertura").value = ultimoDado.linkAbertura;
+            document.getElementById("linkMusica").value = ultimoDado.linkMusica;
+            document.getElementById("numContagem").value = ultimoDado.numContagem;
+            document.getElementById("numContagemTemporada").value = ultimoDado.numContagemTemporada;
+            document.getElementById("nomeAnime").value = ultimoDado.nomeAnime;
+            document.getElementById("temporadaAbertura").value = ultimoDado.temporadaAbertura;
+            document.getElementById("notaMusica").value = ultimoDado.notas.musica;
+            document.getElementById("notaAnimacao").value = ultimoDado.notas.animacao;
+            document.getElementById("notaComposicao").value = ultimoDado.notas.composicao;
+            document.getElementById("notaReplay").value = ultimoDado.notas.replay;
+            document.getElementById("notaPessoal").value = ultimoDado.notas.pessoal;
+        }
+
+        window.onload = exibirDados;
+    </script>
+</body>
+</html>

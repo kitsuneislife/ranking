@@ -1,10 +1,10 @@
 @font-face {
     font-family: 'Work Sans';
-    src: url('./fonts/workSans.ttf') format('truetype');
+    src: url('../fonts/workSans.ttf') format('truetype');
 }
 @font-face {
     font-family: 'Quicksand';
-    src: url('./fonts/quicksand.ttf') format('truetype');
+    src: url('../fonts/quicksand.ttf') format('truetype');
 }
   
   :root {
